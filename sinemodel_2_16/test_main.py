@@ -34,8 +34,9 @@ y = sinemodel(x,w,N,Ns,H_ratio,seuil)
 #==============================================================================
 #   Analysis/synthesis of a sound using the sinusoidal model
 #   x: input sound, w: analysis window (odd size), N: FFT size,
-#   t: threshold in negative dB, y: output sound
+#   seuil: threshold in negative dB, y: output sound
 #   Ns: FFT size for synthesis (even)
+#   Ratio: (hop size)/(window size) 
 #==============================================================================
 wavfile.write('test.wav',fs,y)
 
