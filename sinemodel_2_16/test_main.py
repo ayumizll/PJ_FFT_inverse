@@ -2,7 +2,7 @@
 """
 Created on Fri Feb 13 12:57:46 2015
 
-@author: Lili_ZHENG
+@author: Emily Abia, Quentin Biache, Lili_ZHENG
 """
 
 from numpy import *
