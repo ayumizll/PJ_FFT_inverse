@@ -17,20 +17,26 @@ filename="sound/Wave_5.wav"
 
 # parameter            
 L = size(x)
-dureefenetre = 23e-3                #each slice longer
+dureefenetre = 23e-3                #duration of each window
 #M=fs*dureefenetre
 M = dureefenetre*fs                 #window size
 if (M%2==0):M+=1
 H_ratio=0.25                      # Ratio (hop size)/(window size)
-w = signal.blackmanharris(M)      # window for slice
-N = 1024
-Ns= 1024
+w = signal.blackmanharris(M)      # window for tram
+N = 1024                          # fft size
+Ns= 1024                          # window size for synthesis 
 seuil = -50
 
 
 #t = linspace(0,1,16000);
 #x = sin(2*pi*1000*t);
 y = sinemodel(x,w,N,Ns,H_ratio,seuil)
+#==============================================================================
+#   Analysis/synthesis of a sound using the sinusoidal model
+#   x: input sound, w: analysis window (odd size), N: FFT size,
+#   t: threshold in negative dB, y: output sound
+#   Ns: FFT size for synthesis (even)
+#==============================================================================
 wavfile.write('test.wav',fs,y)
 
 figure()
