@@ -36,7 +36,7 @@ y = sinemodel(x,w,N,Ns,H_ratio,seuil)
 #   x: input sound, w: analysis window (odd size), N: FFT size,
 #   seuil: threshold in negative dB, y: output sound
 #   Ns: FFT size for synthesis (even)
-#   Ratio: (hop size)/(window size) 
+#   H_Ratio: (hop size)/(window size) 
 #==============================================================================
 wavfile.write('test.wav',fs,y)
 
