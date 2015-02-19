@@ -1,0 +1,43 @@
+clc
+clear all
+close all
+
+x0 = 3;
+x1 = 4;
+x2 = 5;
+
+y0 = 4;
+y1 = 6;
+y2 = 5;
+
+p0 = 4;
+p1 = 5;
+p2 = 6;
+
+sigma2=2;
+p = 0.5*sigma2;
+
+duree = 0.023;
+fs = 16000;
+t = linspace(0,duree,fs*duree);
+alpha0=10;
+lambda0=1;
+beta0=1000;
+w0 = 3000;
+phi0=0;
+simga2 = 2.5;
+
+s = exp(alpha0*t+lambda0).*exp(1i*(beta0.*(t.^2)+w0*t+phi0));
+w = gausswin(length(s))
+y = s'.*w;;
+X = log(fft(y))
+
+
+% w0_tild=calc_w0(x1,y0,y1,y2);
+% lambda_tild = est_value(x0,x1,x2,y0,y1,y2,w0_tild);
+% phi_tild = est_value(x0,x1,x2,p0,p1,p2,w0_tild);
+% 
+% alpha_tild2 = est_ACR(x0,x1,x2,p0,p1,p2,w0_tild,p)
+% beta_tild2 = est_FCR(x0,x1,x2,y0,y1,y2,p0,p1,p2,w0_tild,p)
+% [w0_tild2,lambda_tild2,phi_tild2]=est_correction(w0_tild,lambda_tild,phi_tild,alpha_tild2,beta_tild2,p)
+% 
