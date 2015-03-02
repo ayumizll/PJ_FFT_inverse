@@ -31,7 +31,7 @@ AM = 1;
 N = 85;
 
 if AM
-    alpha0_dB = linspace(-0.1,-12,N)/0.023;
+    alpha0_dB = linspace(-0.1,-20,N)/0.023;
     FCR = 0;
 else
     alpha0_dB = 0;
